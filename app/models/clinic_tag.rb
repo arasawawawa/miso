@@ -1,0 +1,2 @@
+class ClinicTag < ApplicationRecord
+end
