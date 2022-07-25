@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_25_200211) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_25_201911) do
   create_table "case_tags", force: :cascade do |t|
     t.integer "case_id"
     t.integer "tag_id"
@@ -124,6 +124,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_25_200211) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_user_details_on_user_id"
+  end
+
+  create_table "user_reserves", force: :cascade do |t|
+    t.integer "user_id"
+    t.date "date"
+    t.integer "clinic_menu_id"
+    t.integer "clinic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_reserves_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
