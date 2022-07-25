@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_18_204014) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_25_200211) do
   create_table "case_tags", force: :cascade do |t|
     t.integer "case_id"
     t.integer "tag_id"
@@ -88,6 +88,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_18_204014) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["clinic_id"], name: "index_menus_on_clinic_id"
+  end
+
+  create_table "specialty_categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "specialty_items", force: :cascade do |t|
+    t.integer "specialty_category_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["specialty_category_id"], name: "index_specialty_items_on_specialty_category_id"
   end
 
   create_table "tags", force: :cascade do |t|
